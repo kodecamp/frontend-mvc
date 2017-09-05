@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nav Demo</title>
+	<style>
+		#container{
+			background-color: seagreen;
+		}
+		.is-primary{
+			background-color: tomato;
+			padding: 8px;
+		}
+	</style>
+</head>
+<body>
+	<a href="#about">About</a>
+	<a href="#home">Home</a>
+	<a href="#contacts">Contacts</a>
+	<div id="container">
+		
+	</div>
+	<script src="templates.js"></script>
+	<script>
+		const container = document.querySelector('#container');
+		window.addEventListener('hashchange', 
+			function(){
+				const hashValue = window.location.hash;
+				console.log(hashValue);
+				const hashKey = hashValue.substr(1);
+				console.log('hash : ',hashKey);
+				if(hashKey === 'home'){
+					container.innerHTML = demoHomeTmpl();
+				}
+				if(hashKey === 'about'){
+					container.innerHTML = demoAboutTmpl();
+				}
+				if(hashKey === 'contacts'){
+					container.innerHTML = demoContactsTmpl();
+				}
+		});
+	</script>
+</body>
+</html>
